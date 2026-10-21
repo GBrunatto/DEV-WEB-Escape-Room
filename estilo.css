@@ -1,0 +1,223 @@
+* { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    color: #ff0000;
+    font-family: "Courier New", Courier, monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* fundo */
+  #fundo-imperio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #fundo-imperio.visivel { display: flex; }
+
+  #fundo-imperio svg {
+    width: 80vmin;
+    height: 80vmin;
+  }
+
+  /* terminal */
+  #terminal {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 640px;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+
+  #terminal.shake {
+    animation: shake 0.4s;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  #cronometro {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 0.9rem;
+    color: #ff0000;
+    opacity: 0.8;
+  }
+
+  #historia {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-left: 3px solid #ff0000;
+    padding-left: 12px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  #fase-titulo {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  #enunciado {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .campo {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  input[type="text"] {
+    flex: 1;
+    min-width: 180px;
+    background: #000;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 12px;
+    outline: none;
+    caret-color: #ff0000;
+  }
+
+  input[type="text"]:focus {
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+  }
+
+  button {
+    background: #000;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  button:hover {
+    background: #ff0000;
+    color: #000;
+  }
+
+  #mensagem {
+    margin-top: 14px;
+    min-height: 1.4em;
+    font-size: 0.9rem;
+  }
+
+  #mensagem.erro { color: #cc0000; }
+  #mensagem.ok { color: #ff4444; }
+
+  #dica {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: #ff0000;
+    display: none;
+  }
+
+  #dica.visivel { display: block; }
+
+  #btn-fundo {
+    margin-top: 16px;
+  }
+
+  .pista-fundo {
+    color: #000;
+    user-select: text;
+    cursor: text;
+    font-size: 0.85rem;
+    margin-top: 18px;
+    line-height: 1.5;
+  }
+
+  .pista-fundo::selection {
+    background: #ff0000;
+    color: #000;
+  }
+
+  .decoracao {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s, transform 0.2s;
+    user-select: none;
+  }
+
+  .decoracao:hover,
+  .decoracao.ativo {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  #decoracao-pista {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #ff0000;
+    display: none;
+  }
+
+  #decoracao-pista.visivel { display: block; }
+
+  /* tela final */
+  #tela-final {
+    display: none;
+    text-align: center;
+  }
+
+  #tela-final.visivel { display: block; }
+
+  #acesso-liberado {
+    font-size: 2rem;
+    letter-spacing: 4px;
+    margin: 20px 0;
+    animation: piscar 1s infinite;
+  }
+
+  @keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  #tempo-final {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
